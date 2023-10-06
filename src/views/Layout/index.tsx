@@ -1,58 +1,14 @@
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Breadcrumb, Layout } from "antd";
 import React, { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import MianMenu from "@/components/MainMenu";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-type MenuItem = Required<MenuProps>["items"][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem("Home", "/home", <TeamOutlined />),
-  getItem("About", "/about", <PieChartOutlined />),
-  getItem("User", "/user", <UserOutlined />),
-  getItem("User", "sub1", <DesktopOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
-];
-
 const Viwe: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const navigateTo = useNavigate();
+  // const navigateTo = useNavigate();
 
-  const menuClick = (e: { key: string }) => {
-    console.log("点击了" + e.key);
-    // 点击跳转路由 编程式导航跳转 hook
-    navigateTo(e.key);
-  };
   return (
     <Layout id="components-layout-demo-side" style={{ minHeight: "100vh" }}>
       {/* 左侧导航栏 */}
@@ -62,13 +18,7 @@ const Viwe: React.FC = () => {
         onCollapse={(value) => setCollapsed(value)}
       >
         <div className="logo" />
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={items}
-          onClick={menuClick}
-        />
+        <MianMenu />
       </Sider>
       {/* 右侧内容 */}
       <Layout className="site-layout">
