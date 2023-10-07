@@ -24,7 +24,11 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+
+    // 语法提示
+    "ignoreDeprecations": "5.0",
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

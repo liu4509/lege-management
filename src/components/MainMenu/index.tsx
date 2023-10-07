@@ -29,10 +29,9 @@ const items: MenuItem[] = [
   getItem("Home", "/home", <TeamOutlined />),
   getItem("About", "/about", <PieChartOutlined />),
   getItem("User", "/user", <UserOutlined />),
-  getItem("User", "page1", <DesktopOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
+  getItem("Page", "page", <DesktopOutlined />, [
+    getItem("Page01", "/page/page01"),
+    getItem("Page02", "/page/page02"),
   ]),
   getItem("Team", "page2", <TeamOutlined />, [
     getItem("Team 1", "66"),
@@ -47,16 +46,31 @@ const items: MenuItem[] = [
 
 const Viwe: React.FC = () => {
   const navigateTo = useNavigate();
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
   // 当前路由
   const location = useLocation();
-  const currentPath = location.pathname;
+  let currentPath: string = location.pathname;
+  // menu 展开项的初始值
+  let firstOpenKeys: string[] = [];
+  const [openKeys, setOpenKeys] = useState<string[]>(firstOpenKeys);
 
+  // 当路径是子项 默认打开展开项
+  const findKey = (obj: { key: string }) => {
+    return obj.key === currentPath;
+  };
+  for (let i = 0; i < items.length; i++) {
+    if (
+      items[i]!["children"] &&
+      items[i]!["children"].length > 0 &&
+      items[i]!["children"].find(findKey)
+    ) {
+      // 赋值数值 要具体到下标 难排查问题
+      firstOpenKeys[0] = items[i]!.key as string;
+    }
+  }
   // 点击跳转路由 编程式导航跳转 hook
   const menuClick = (e: { key: string }) => {
     navigateTo(e.key);
   };
-
   // SubMenu 展开/关闭的回调
   const handleOpenChang = (keys: string[]) => {
     // 只显示当前点击的 items 其余 items 关闭

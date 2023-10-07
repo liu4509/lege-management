@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 // 导入清除全部样式库 初始化放在前面
 import "reset-css";
