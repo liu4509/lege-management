@@ -35,5 +35,9 @@ const router = [
       },
     ],
   },
+  {
+    path: "*",
+    element: <Navigate to="/home" />,
+  },
 ];
 export default router;
