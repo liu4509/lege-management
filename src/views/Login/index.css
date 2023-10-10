@@ -1,0 +1,9 @@
+.loginBox .ant-input,
+.loginBox .ant-input-password {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border-color: #40a9ff;
+}
+.loginBox .ant-input-password-icon.anticon {
+  color: #40a9ff;
+}

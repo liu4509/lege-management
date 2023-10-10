@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import Login from "@/views/Login";
 
 // 路由懒加载
 const About = lazy(() => import("../views/About"));
@@ -44,6 +45,10 @@ const router = [
         element: withLoadingComponent(<Page02 />),
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "*",
