@@ -4,6 +4,19 @@
   color: white;
   border-color: #40a9ff;
 }
+.loginBox .ant-input::-webkit-input-placeholder {
+  color: rgba(64, 169, 255, 0.5);
+}
 .loginBox .ant-input-password-icon.anticon {
   color: #40a9ff;
+}
+.loginBox .captchaBox {
+  display: flex;
+}
+.loginBox .captchaBox .captchaImg {
+  width: 120px;
+  margin-left: 20px;
+  border: 1px solid #40a9ff;
+  border-radius: 3px;
+  cursor: pointer;
 }

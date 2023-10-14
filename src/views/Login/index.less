@@ -1,10 +1,27 @@
  .loginBox {
+  // 密码盒子
   .ant-input, .ant-input-password{
     background-color: rgba(255, 255, 255, 0);
     color: white;
     border-color: #40a9ff;
   }
+  .ant-input::-webkit-input-placeholder{
+    color: rgba(64, 169, 255,0.5);
+  }
+  // 密码显示切换眼睛
   .ant-input-password-icon.anticon {
     color: #40a9ff;
+  }
+  // 验证码盒子
+  .captchaBox{
+    display: flex;
+    .captchaImg{
+      width: 120px;
+      margin-left: 20px;
+      border: 1px solid #40a9ff;
+      border-radius: 3px;
+      // 更改鼠标样式
+      cursor: pointer;
+    }
   }
  }

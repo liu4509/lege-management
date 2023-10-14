@@ -28,8 +28,15 @@ const Login = () => {
           <Space direction="vertical" size="middle" style={{ display: "flex" }}>
             <Input placeholder="用户" />
             <Input.Password placeholder="密码" />
-            <Button type="primary" block>
-              Primary
+            {/* 验证码 */}
+            <div className="captchaBox">
+              <Input placeholder="验证码" />
+              <div className="captchaImg">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <Button type="primary" className="loginBtn" block>
+              登录
             </Button>
           </Space>
         </div>
