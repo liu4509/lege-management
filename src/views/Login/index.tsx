@@ -5,6 +5,8 @@ import initLoginBg from "./init.ts";
 import { Button, Input, Space } from "antd";
 import "./index.css";
 
+import { captchaAPI } from "@/request/api.ts";
+
 // 组件加载后加载背景
 const Login = () => {
   useEffect(() => {
@@ -13,6 +15,16 @@ const Login = () => {
       initLoginBg();
     };
   }, []);
+
+  // 验证码请求
+  const getCaptchaBox = () => {
+    // 调用 API
+    captchaAPI().then((res) => {
+      console.log(res);
+    });
+    alert(5);
+  };
+
   return (
     <div className={styles.loginPage}>
       {/* 背景 */}
@@ -29,7 +41,7 @@ const Login = () => {
             <Input placeholder="用户" />
             <Input.Password placeholder="密码" />
             {/* 验证码 */}
-            <div className="captchaBox">
+            <div className="captchaBox" onClick={getCaptchaBox}>
               <Input placeholder="验证码" />
               <div className="captchaImg">
                 <img src="" alt="" />
