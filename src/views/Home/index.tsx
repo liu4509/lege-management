@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-
+import numStatus from "@/store/NumStatus";
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -17,11 +17,13 @@ const Home = () => {
     // 同步写法
     // dispatch({ type: "add2", val: 100 });
     // 异步写法
-    dispatch((dis: Function) => {
-      setTimeout(() => {
-        dis({ type: "add3", val: 100 });
-      }, 5000);
-    });
+    // dispatch((dis: Function) => {
+    //   setTimeout(() => {
+    //     dis({ type: "add3", val: 100 });
+    //   }, 1000);
+    // });
+    // 模仿 vueX 写法
+    dispatch(numStatus.asynAction.asynAdd);
   };
   return (
     <div className="home">

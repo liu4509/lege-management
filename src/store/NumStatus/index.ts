@@ -15,6 +15,13 @@ const store = {
       newState.num += action.val;
     },
   },
+  asynAction: {
+    asynAdd(dis: Function) {
+      setTimeout(() => {
+        dis({ type: "add3", val: 100 });
+      }, 1000);
+    },
+  },
   actionNames: {},
 };
 
